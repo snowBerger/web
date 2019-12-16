@@ -1,0 +1,88 @@
+.foodItem {
+  width: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .foodIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .foodName {
+    font-size: .2rem;
+    line-height: .2rem;
+    color: #7A7D80;
+  }
+  .yecailei {
+    background: url('./images/icon-yecailei.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .gaodianfenshucai {
+    background: url('./images/icon-gaodianfenshucai.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .gualei {
+    background: url('./images/icon-gualei.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .luobo {
+    background: url('./images/icon-luobo.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .gaoshengtangshuiguo {
+    background: url('./images/icon-gaoshengtangshuiguo.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .zhongshengtangshuiguo {
+    background: url('./images/icon-zhongshengtangshuiguo.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .dishengtangshuiguo {
+    background: url('./images/icon-dishengtangshuiguo.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .gaozhifangshuiguo {
+    background: url('./images/icon-gaozhifangshuiguo.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .gaozhirou {
+    background: url('./images/icon-gaozhirou.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .zhongzhirou {
+    background: url('./images/icon-zhongzhirou.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .dizhirou {
+    background: url('./images/icon-dizhirou.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .naizhipin {
+    background: url('./images/icon-naizhipin.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .douzhipin {
+    background: url('./images/icon-douzhipin.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .doulei {
+    background: url('./images/icon-doulei.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .guwuzaliang {
+    background: url('./images/icon-guwuzaliang.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .jiagongguwu {
+    background: url('./images/icon-jiagongguwu.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .youzhilei {
+    background: url('./images/icon-youzhilei.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+  .jianguolei {
+    background: url('./images/icon-jianguolei.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+}

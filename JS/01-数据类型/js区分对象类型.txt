@@ -1,0 +1,59 @@
+http://blog.csdn.net/chelen_jak/article/details/50009537
+
+1.数据类型：
+a.基本数据类型："number", "string", "boolean", "undefined", "null"
+b.对象数据类型："Object"{"object", "array", "function"}
+
+var str = "aa";
+typeof(str) === "string";        //typeof只能判断基本数据类型
+
+var arr = [];
+arr instanceof Array === true;   //instanceof返回对应的复合类型（对应的实例返回对应的类型）
+
+Object.prototype.toString.apply(str) === [object String]};
+Object.prototype.toString.apply(arr) === [object Array];   //Object.prototype.toString.apply()返回不同的对象类型
+或
+Object.prototype.toString.call(str) === [object String]};
+Object.prototype.toString.call(arr) === [object Array];   //Object.prototype.toString.call()返回不同的对象类型
+
+
+http://www.zhihu.com/question/20289071
+
+2.js中的call与apply的用途及用法区别
+
+a.用途：
+call()与apply()都是用于改变函数运行时的上下文，即this()
+
+eg: 
+
+
+
+function cat(){}
+
+cat.prototype={     
+	food:"fish",
+        say: function(){ 
+          alert("I love "+ this.food);     
+	}}
+
+var blackCat = new cat;
+blackCat.say();   //正常调用  I love fish
+
+//定义新对象，没有say方法
+whiteDog = {food:"bone"};
+那么我们可以通过call或apply用blackCat的say方法：blackCat.say.call(whiteDog);  //I love bone
+
+
+常见用法： 
+ 通过document.getElementsByTagName选择的dom 节点是一种类似array的数组。它不能应用Array下的push,pop等方法。
+ 我们可以通过：var domNodes =  Array.prototype.slice.call(document.getElementsByTagName("*"));这样domNodes就可以应用Array下的所有方法了。
+
+
+b.用法：
+ var func1 = function(arg1, arg2){}
+
+ func1.call(this, arg1, arg2);       func1.apply(this, [arg1, arg2...])  //默认情况下，this为 window，call()与apply()下this为传入js对象
+
+其中this上下文可以为js中的任何对象，call()适用于参数数量已知的情况，按照固定顺序传参；apply()适用于参数数量未知的情况，只需要将参数放进arr[]传入即可
+
+

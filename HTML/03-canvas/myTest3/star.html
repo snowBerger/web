@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+        当前浏览器不支持Canvas，请更换浏览器重试。
+    </canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 800;
+        canvas.height = 800;
+
+        var context = canvas.getContext('2d');
+
+        context.lineJoin = "miter"    //miter:默认、bevel：方形、round：圆形
+        context.miterLimit = 10;    //默认：10，两条相交线内外角的比值的最大值
+
+        context.lineWidth = 10;
+        context.fillStyle = "#ffff00";
+        context.strokeStyle = "#ffff00"
+        drawStar(context, 400, 400, 300, 150, 30);
+    }
+
+    function drawStar(ctx, x, y, R, r, alpha) {
+        ctx.beginPath();
+        for (var i = 0; i < 5; i++) {
+            ctx.lineTo(Math.cos((18 + 72 * i - alpha) / 180 * Math.PI) * R + x, -Math.sin((18 + 72 * i - alpha) / 180 * Math.PI) * R + y);
+
+            ctx.lineTo(Math.cos((54 + 72 * i - alpha) / 180 * Math.PI) * r + x, -Math.sin((54 + 72 * i - alpha) / 180 * Math.PI) * r + y);
+        }
+        ctx.closePath();
+
+        ctx.fill();
+        ctx.stroke();
+    }
+    </script>
+</body>
+
+</html>

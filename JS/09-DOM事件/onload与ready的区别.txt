@@ -1,0 +1,41 @@
+1.document.ready 在文档DOM加载完及执行，window.onload在所有文档及其关联资源（图片，媒体文件等）加载完后才执行
+
+
+2.window.onload = function(){}  等价于  $(document).onload(function(){})
+
+3.window.onload最终只能应用一个方法，后应用的方法会覆盖前面的方法；document.ready则可应用多个方法，并按照应用的先后顺序执行。
+
+   function one(){ alert("1") };
+   function two(){ alert("2") };
+
+   window.onload = one();
+   window.onload = two();
+   //运行后输出2
+
+   $(document).ready(function(){one()});
+   $(document).ready(function(){two()});
+   //运行后先输出1在输出2
+
+4. $(document).ready(function(){});  //$().ready(function(){});  (jQuery默认参数是document)
+   
+   $(function(){});
+
+   jQuery(function(){$});
+
+   //上述三种写法相同，下面为上面的简写形式
+
+
+5. (function($){})(jQuery); 这种匿名写法是为了避免多个库中$符号的冲突。$只用作形参
+
+6. JavaScript中(function(){…})(); 与 (function(){…}()); 这两种写法在意义上有什么区别？
+
+   都是提供了一个立即执行的匿名函数，相同的写法还包括：
+
+   ~function() {}();
+   !function() {}();
+   void function() {}();
+
+   (function(){…})(); 与 (function(){…}());的执行结果一致，区别理解为：
+  
+   (function(){...})(); 首先用（）这个分组运算符评估了一个函数表达式，然后调用；
+   (function(){...}()); 是用()这个分组运算符评估了一个函数调用。

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>全屏滑动</title>
+    <style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    body {
+        font-family: Arial, "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    }
+    
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    h1 {
+        font-size: 6em;
+        font-weight: normal;
+        transform: translateX(-100%);
+    }
+    
+    p {
+        font-size: 2em;
+        margin: 0.5em 0 2em 0;
+    }
+    
+    #container,
+    .sections,
+    .section {
+        height: 100%;
+        position: relative;
+    }
+    
+    .section {
+        background-image-color: #000;
+        background-image-size: cover;
+        background-image-position: 50% 50%;
+        text-align: center;
+        color: white;
+    }
+    /* .left {
+        float: left;
+        width: 20%;
+    } */
+    
+    #section0 {
+        background-image: url(img/0.jpg);
+        color: #fff;
+        text-shadow: 1px 1px 1px #333;
+    }
+    
+    #section1 {
+        background-image: url(img/1.jpg);
+    }
+    
+    #section2 {
+        background-image: url(img/2.jpg);
+    }
+    
+    #section3 {
+        background-image: url(img/3.jpg);
+    }
+    
+    #section4 {
+        background-image: url(img/4.jpg);
+    }
+    
+    #section5 {
+        background-image: url(img/5.jpg);
+    }
+    
+    #section6 {
+        background-image: url(img/6.jpg);
+    }
+    
+    #section0 p {
+        color: #F1FF00;
+    }
+    
+    #section6 p {
+        color: #00A3AF;
+    }
+    
+    .intro {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    
+    .intro2 {
+        position: absolute;
+        top: 15%;
+        width: 40%;
+        /* color: #00A3FF; */
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    
+    .page {
+        position: fixed;
+        right: 10px;
+        top: 50%;
+        list-style-type: none;
+    }
+    
+    .page li {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 0 0 10px 5px;
+    }
+    
+    .page li.active {
+        width: 14px;
+        height: 14px;
+        border: 2px solid #fffe00;
+        background: none;
+        margin-left: 0;
+    }
+    
+    #section0 .title {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        -webkit-animation: title_section0 1s ease-in-out 100ms forwards;
+        animation: title_section0 1s ease-in-out 100ms forwards;
+    }
+    
+    #section0 p {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        -webkit-animation: p_section0 1s ease-in-out 100ms forwards;
+        animation: p_section0 1s ease-in-out 100ms forwards;
+    }
+    
+    @-webkit-keyframes title_section0 {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes title_section0 {
+        0% {
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    @-webkit-keyframes p_section0 {
+        0% {
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes p_section0 {
+        0% {
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+        }
+        100% {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+        }
+    }
+
+    .slide{
+        transform: translateX(0);
+        transition: all ease-in-out 500ms;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container" data-PageSwitch>
+        <div class="sections">
+            <div class="section active" id="section0">
+                <div class="intro">
+                    <h1 class="title">switchPage</h1>
+                    <p>Create Beautiful Fullscreen Scrolling Websites</p>
+                </div>
+            </div>
+            <div class="section" id="section1">
+                <div class="intro2">
+                    <h1 class="title">C'est La vie</h1>
+                </div>
+            </div>
+            <div class="section" id="section2">
+                <div class="intro2">
+                    <h1 class="title">Αυτή είναι η ζωή</h1>
+                </div>
+            </div>
+            <div class="section" id="section3">
+                <div class="intro2">
+                    <h1 class="title">セラヴィ</h1>
+                </div>
+            </div>
+            <div class="section" id="section4">
+                <div class="intro2">
+                    <h1 class="title">هذه هي الحياة</h1>
+                </div>
+            </div>
+            <div class="section" id="section5">
+                <div class="intro">
+                    <h1 class="title">THE END</h1>
+                    <p>Everything will be okay in the end. If it's not okay, it's not the end.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="pageSwitch.js"></script>
+    <script type="text/javascript">
+    $("#container").PageSwitch({
+        diraction: "herizontal",
+        easing: "linear",
+        duration: 600,
+        callback: function() {
+            $(".intro2 h1").addClass("slide");
+        }
+    });
+    </script>
+</body>
+
+</html>

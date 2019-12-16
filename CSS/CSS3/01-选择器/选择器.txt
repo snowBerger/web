@@ -1,0 +1,75 @@
+1、:root{
+//根元素，相当于html{};
+}
+
+2、input:not([type="submit"]){}
+
+3、div:empty{}
+
+4、:target配合<a href="#brand">Brand</a>使用：
+<h2><a href="#brand">Brand</a></h2>
+<div class="menuSection" id="brand">
+    content for Brand
+</div>
+
+#brand:target{/*这里的:target就是指id="brand"的div对象*/
+  display:block;
+}
+
+5、p:first-child{}、p:last-child{}
+// first-child 选择父元素下所有第一个元素为 p 的元素
+// last-child 选择父元素下所有最后一个元素为 p 的元素
+
+6、p:nth-child(n){}、p:nth-last-child(n){}
+// nth-child(n) 选择父元素下所有第n个元素为 p 的元素
+// nth-last-child(n) 选择父元素下所有倒数第n个元素为 p 的元素
+/**
+2n+1/odd 奇数
+2n/even  偶数
+*/
+
+/**********************/
+关于 :nth-child(n) 与 :nth-of-type(n) 需要记住：
+1. 前者强调的是位置，先找到第n个元素，如果元素不存在或元素类型不对应，则不应用样式;
+2. 后者强调的是类型，先找到指定类型的第n个元素，然后应用样式，否则不应用样式
+/**********************/
+
+7、p:first-of-type{}、p:last-of-type{}
+// first-of-type{} 选择父元素下所有的第一个 p 元素
+// last-of-type{} 选择父元素下所有的最后一个 p 元素
+
+8、p:nth-of-type(n){}、p:nth-last-of-type(n){}
+// nth-of-type(n){} 选择父元素下所有的第n个 p 元素
+// nth-last-of-type(n){} 选择父元素下所有倒数第ｎ个 p 元素
+/**
+2n+1/odd 奇数
+2n/even  偶数
+*/
+
+9、:only-child{} //只含有一个子元素的
+
+10、div:only-of-type{}  //只含有一个div子元素的
+
+11、:enabled{}、:disabled{}
+
+12、:checked{}
+
+13、::selection{}  //定义浏览器内选中文本的样式
+
+14、:read-only{}、:read-write{}
+
+15、::before{}、::after{}  //为元素前后追加元素，配合content使用
+.clearfix::before, ::after{
+content: "";   //添加空元素	
+}
+.clearfix:after{
+clear: both;  //清除浮动
+}
+
+
+
+
+
+
+
+ 

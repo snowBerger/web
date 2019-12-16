@@ -1,0 +1,36 @@
+1.多列布局：
+column: 150px 3; //3列 列宽150px
+
+column-width: 150px;
+
+column-count: 3;
+
+column-gap: normal/100px/3em;  //列间距
+
+column-rule: 3px solid green;  //列分割线样式
+
+column-span: none/all;   //设置跨行
+
+2.盒模型：
+box-sizing: content-box（默认情况）/border-box（border及padding宽度均计算在整个元素宽度内）/inherit（继承父元素的该属性）;  
+
+3.伸缩布局:
+.flex-box{
+display: flex;  //定义伸缩盒子
+flex-direction: row/column;  //伸缩方向：横向/纵向
+justify-content: flex-start/center/flex-end;(align-items:flex-start/center/flex-end)  //位置
+}
+
+4.伪元素，伪类：
+::before/::after 伪元素  :before{}/:after{} 伪类 添加内容
+
+5.渐变（线性/径向）, 存在兼容性:
+(1)线性：background: linear-gradient(direction, color-stop1, color-stop2, ...);
+   direction: right/to right/top left
+(2)线性重复：repeat-linear-gradient(direction, color-stop1, color-stop2, 10%, ...);
+(3)径向渐变: background: radial-gradient(center, shape, size, start-color, ..., end-color);
+   渐变中心：默认center
+   shape: 默认ellipse(椭圆), circle
+   size: 默认farthest-corner
+(5)径向不均匀分布：background: radial-gradient(red 5%, yellow 20%, bule 60%);
+(6)重复的径向渐变：background: repeat-radial-gradient(red, yellow 10%, green 15%);

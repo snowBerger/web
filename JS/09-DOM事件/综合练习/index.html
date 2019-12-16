@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style type="text/css">
+    body,
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        font-size: 13px;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    #divselect {
+        width: 186px;
+        margin: 80px auto;
+        position: relative;
+        z-index: 10000;
+    }
+    
+    #divselect cite {
+        width: 150px;
+        height: 24px;
+        line-height: 24px;
+        display: block;
+        color: #807a62;
+        cursor: pointer;
+        font-style: normal;
+        padding-left: 4px;
+        padding-right: 30px;
+        border: 1px solid #333333;
+        background: url(images/up.png) no-repeat right center;
+    }
+    
+    #divselect ul {
+        width: 184px;
+        border: 1px solid #333333;
+        background-color: #ffffff;
+        position: absolute;
+        z-index: 20000;
+        margin-top: -1px;
+        display: none;
+    }
+    
+    #divselect ul li {
+        height: 24px;
+        line-height: 24px;
+    }
+    
+    #divselect ul li a {
+        display: block;
+        height: 24px;
+        color: #333333;
+        text-decoration: none;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    </style>
+    <script type="text/javascript">
+    window.onload = function() {
+        var box = document.getElementById('divselect'),
+            title = box.getElementsByTagName('cite')[0],
+            menu = box.getElementsByTagName('ul')[0],
+            as = box.getElementsByTagName('a'),
+            index = -1,
+            target = false;
+
+        // 点击三角时
+        title.onclick = function(event) {
+            // 执行脚本
+            event = event || window.event;
+            if (target) closeMenu();
+            else showMenu();
+            //阻止点击标题冒泡
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancleBubble = true;
+            }
+        }
+
+        // 滑过滑过、离开、点击每个选项时
+        // 执行脚本
+        for (var i = 0, l = as.length; i < l; i++) {
+            //鼠标滑过改变背景色
+            as[i].onmouseover = function() {
+                this.style.background = "#567";
+                //更新index的值
+            }
+
+            //鼠标离开事件
+            as[i].onmouseout = function() {
+                this.style.background = "#fff";
+            }
+
+            //鼠标点击事件
+            as[i].onclick = function() {
+                title.innerHTML = this.innerHTML;
+                closeMenu();
+            }
+        }
+
+        // 点击页面空白处时
+        // 执行脚本
+        document.onclick = function() {
+            closeMenu();
+        }
+
+        //显示列表
+        function showMenu() {
+            title.style.background = "url(images/down.png) no-repeat right center";
+            menu.style.display = "block";
+            target = true;
+
+            //键盘事件
+            document.onkeydown = function(event) {
+                event = event || window.event;
+                if (event.keyCode == 38 || event.keyCode == 40) {
+                    //防止键盘事件导致的网页滚动
+                    if (event.preventDefault) {
+                        event.preventDefault();
+                    } else {
+                        event.returnValue = false;
+                    }
+                   /* //设置所有选项为无背景
+                    for (var i = 0, l = as.length; i < l; i++)
+                        as[i].style.background = "#fff";*/
+                    //取消前一个标签的背景色
+                    if (as[index])
+                        as[index].style.background = "#fff";
+                    //向下按键
+                    if (event.keyCode == 40) {
+                        if (index >= as.length - 1) {
+                            index = 0;
+                        } else {
+                            index++;
+                        }
+                    }
+                    //向上按键
+                    if (event.keyCode == 38) {
+                        if (index <= 0)
+                            index = as.length - 1;
+                        else {
+                            index--;
+                            //取消上一个选项背景色
+                            as[index + 1].style.background = "#fff";
+                        }
+                    }
+                    as[index].style.background = "#567";
+                }
+                if (event.keyCode == 13) {
+                    title.innerHTML = as[index].innerHTML;
+                    closeMenu();
+                }
+            }
+        }
+
+        //隐藏列表
+        function closeMenu() {
+            //设置所有选项为无背景
+            for (var i = 0, l = as.length; i < l; i++)
+                as[i].style.background = "#fff";
+            title.style.background = "url(images/up.png) no-repeat right center";
+            menu.style.display = "none";
+            target = false;
+            index = -1;
+
+            //取消键盘事件
+            document.onkeydown = null;
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="divselect">
+        <cite>请选择分类</cite>
+        <ul>
+            <li id="li"><a href="javascript:;" selectid="1">ASP开发</a></li>
+            <li><a href="javascript:;" selectid="2">.NET开发</a></li>
+            <li><a href="javascript:;" selectid="3">PHP开发</a></li>
+            <li><a href="javascript:;" selectid="4">Javascript开发</a></li>
+            <li><a href="javascript:;" selectid="5">Java特效</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

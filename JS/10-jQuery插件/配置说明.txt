@@ -1,0 +1,23 @@
+﻿jQuery Validate插件的配置
+
+1.requird: 是否必填
+
+2.remote: 远程校验 （比如验证用户名是否存在）
+
+3.minlength、maxlength、rangelength：最小长度、最大长度、长度范围
+
+4.min、max、range：最小值、最大值、值范围
+
+5.email格式：email:true  （url格式、date格式类似）dateISO（严格日期验证）
+
+6.number、 digits（整数）、equalTo("#password")  确认密码
+
+7.valid()检查表单是否有效
+
+8.$("#password").rules() //获取、添加、修改元素的校验规则
+
+9. validator.form() 验证表单是否有效
+   validator.element() 验证某个元素是否有效
+   validator.resetForm()  重置表单
+   validator.showErrors() 返回错误信息
+   validator.numberOfInvalids  返回无效的元素数量

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>radialGrad</title>
+</head>
+<body>
+	<canvas id="canvas">
+		当前浏览器不支持Canvas，请更换浏览器重试。
+	</canvas>
+
+	<script type="text/javascript">
+	window.onload = function(){
+		var canvas = document.getElementById('canvas');
+
+		canvas.width = "800";
+		canvas.height = "800";
+
+		var context = canvas.getContext('2d');
+
+		var radialGrad = context.createRadialGradient(400, 400, 100, 400, 400, 500);   //创建辐射渐变线
+		radialGrad.addColorStop(0.0, "#ffffff");     //添加渐变色  [0, 1]
+		radialGrad.addColorStop(0.25, "#ff0000");
+		radialGrad.addColorStop(0.5, "#E5740A");
+		radialGrad.addColorStop(0.75, "#ECE510");
+		radialGrad.addColorStop(1.0, "#11EF30");
+
+		context.fillStyle = radialGrad;
+		context.fillRect(0, 0, 800, 800);
+	}
+	</script>
+</body>
+</html>

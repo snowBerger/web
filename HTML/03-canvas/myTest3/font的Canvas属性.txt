@@ -1,0 +1,28 @@
+1.context.measureText(string).width    //返回字符串的宽度（居中显示字体）
+
+2.context.textAlign   //水平对齐 left; center; right  (中线相对于文本的位置)
+
+3.context.textBaseline  //垂直对齐  top; middle; bottom  (中线相对于文本的位置)
+
+4.CanvasRenderingContext2D.prototype.XXX 构建自己 XXX 的函数
+
+给原型模板增加方法（函数）
+
+5.explorercanvas.js完成降级处理
+
+https://code.google.com/p/explorercanvas/
+
+https://github.com/arv/explorercanvas
+
+6.Canvas图形库
+
+canvasplus
+https://code.google.com/p/canvasplus/
+
+
+artisan js
+http://artisanjs.com/
+
+
+Rgraph
+https://roopons.com.au/wp-content/plugins/viral-optins/js/rgraph/

@@ -1,0 +1,17 @@
+1、两种创建新实例的方法：
+   var obj = new Object();     //创建新实例
+   var obj = Object.create(obj.prototype, [propertites]);    //ES5新特性，创建继承obj的新实例
+
+2、var Students = {...};
+   var bosn = new Students();   
+
+   students.prototype.x = 101;
+   bosn.x; //101;    (通过 实例.prototype 增加的属性将会同时增加到该对象当前所有已存在的实例上)
+
+   students.prototype = {y:2};
+   bosn.x;  //101
+   bosn.y;  //undefine  
+ 
+   var aa = new students('aa', 3, 'grade 2');
+   aa.x;  //undefine
+   aa.y;  //2   (注意：通过重新定义obj.prototype属性的方式，只会改变新创建的对象实例的属性，已经存在的对象实例该属性为undefine)

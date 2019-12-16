@@ -1,0 +1,86 @@
+/* html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p a,
+img,
+ol,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+} */
+
+#my3dspace {
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 50%;
+    /* overflow: hidden; */
+}
+
+#cube {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+}
+
+.face {
+    width: 160px;
+    height: 160px;
+    padding: 20px;
+    background-color: #69c;
+    color: white;
+    font-size: 160px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 160px;
+    position: absolute;
+    border: 1px solid #fff;
+    -webkit-transition: -webkit-transform 1s linear;
+}
+
+#face1 {}
+
+#face2 {
+    -webkit-transform-origin: bottom;
+    -webkit-transform: rotateX(90deg);
+}
+
+#face3 {
+    -webkit-transform: translateZ(-200px);
+}
+
+#face4 {
+    -webkit-transform-origin: top;
+    -webkit-transform: rotateX(-90deg);
+}
+
+#face5 {
+    -webkit-transform-origin: left;
+    -webkit-transform: rotateY(90deg);
+}
+
+#face6 {
+    -webkit-transform-origin: right;
+    -webkit-transform: rotateY(-90deg);
+}
+
+#op {
+    width: 600px;
+    margin: 100px auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#op .range-control {
+    width: 600px;
+}

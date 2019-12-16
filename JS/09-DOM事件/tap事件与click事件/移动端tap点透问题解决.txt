@@ -1,0 +1,46 @@
+http://blog.youyo.name/archives/zepto-tap-click-through-research.html
+
+http://www.bubuko.com/infodetail-649496.html
+
+1.点透：
+ 
+ 点透是指点击弹出层按钮后，该按钮正下方的内容也会执行点击事件
+
+2.出现原因：
+ 
+ 从zepto或jqm源码中发现，tap事件是绑定在document上的touch事件上来完成事件模拟的，也就是说tap事件是冒到document上触发的，而在冒泡到document之前，用户手的接触屏幕(touchstart)和离开屏幕(touchend)是会触发click事件的,因为click事件有延迟触发(这就是为什么移动端不用click而用tap的原因)(大概是300ms,为了实现safari的双击事件的设计)，所以在执行完tap事件之后，弹出来的选择组件马上就隐藏了，此时click事件还在延迟的300ms之中，当300ms到来的时候，click到的其实不是完成而是隐藏之后的下方的元素，如果正下方的元素绑定的有click事件此时便会触发，如果没有绑定click事件的话就当没click，但是正下方的是input输入框(或者select选择框或者单选复选框)，点击默认聚焦而弹出输入键盘，也就出现了上面的点透现象。
+
+3.解决方法：
+
+  方案一：来得很直接github上有个fastclick可以完美解决https://github.com/ftlabs/fastclick
+
+引入fastclick.js，因为fastclick源码不依赖其他库所以你可以在原生的js前直接加上
+
+1 window.addEventListener( "load", function() {
+2     FastClick.attach( document.body );
+3 }, false );
+或者有zepto或者jqm的js里面加上
+
+1 $(function() {
+2     FastClick.attach(document.body);
+3 });
+当然require的话就这样：
+
+1 var FastClick = require(‘fastclick‘);
+2 FastClick.attach(document.body, options);
+方案二：用touchend代替tap事件并阻止掉touchend的默认行为preventDefault()
+
+1 $("#cbFinish").on("touchend", function (event) {
+2     //很多处理比如隐藏什么的
+3     event.preventDefault();
+4 });
+方案三：延迟一定的时间(300ms+)来处理事件
+
+1 $("#cbFinish").on("tap", function (event) {
+2     setTimeout(function(){
+3     //很多处理比如隐藏什么的
+4     },320);
+5 });    
+这种方法其实很好，可以和fadeInIn/fadeOut等动画结合使用，可以做出过度效果
+
+理论上上面的方法可以完美的解决tap的点透问题，如果真的倔强到不行，用click

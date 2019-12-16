@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>my 3d space</title>
+    <style type="text/css">
+    #my3dspace {
+        margin: 200px auto 0;
+        height: 400px;
+        width: 400px;
+        -webkit-perspective: 800px;
+        -webkit-perspective-origin: 50% 50%;
+        overflow: hidden;
+    }
+    
+    #page-group {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        -webkit-transform-style: preserve-3d;
+        position: relative;
+    }
+    
+    .page {
+        width: 360px;
+        height: 360px;
+        padding: 20px;
+        background-color: #69c;
+        color: white;
+        font-size: 360px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 360px;
+        position: absolute;
+
+        -webkit-transform-origin: left;
+        -webkit-transition: -webkit-transform 1s linear;
+    }
+    
+    #page1 {
+    }
+    
+    #page2,
+    #page3,
+    #page4,
+    #page5,
+    #page6 {
+        -webkit-transform: rotateY(90deg);
+    }
+    
+    #bt {
+        text-align: center;
+        margin: 20px auto;
+    }
+    </style>
+    <script type="text/javascript">
+    var curIndex = 1;
+
+    function next() {
+        if (curIndex < 6) {
+            var curPage = document.getElementById("page" + curIndex);
+            curPage.style.webkitTransform = "rotateY(-90deg)";
+            curIndex++;
+            var nextPage = document.getElementById("page" + curIndex);
+            nextPage.style.webkitTransform = "rotateY(0deg)";
+        }
+    }
+
+    function prev() {
+        if (curIndex > 1) {
+            var curPage = document.getElementById("page" + curIndex);
+            curPage.style.webkitTransform = "rotateY(90deg)";
+            curIndex--;
+            var nextPage = document.getElementById("page" + curIndex);
+            nextPage.style.webkitTransform = "rotateY(0deg)";
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="my3dspace">
+        <div id="page-group">
+            <div class="page" id="page1">1</div>
+            <div class="page" id="page2">2</div>
+            <div class="page" id="page3">3</div>
+            <div class="page" id="page4">4</div>
+            <div class="page" id="page5">5</div>
+            <div class="page" id="page6">6</div>
+        </div>
+    </div>
+    <div id="bt">
+        <a href="javascript:prev();">prev</a>&nbsp;&nbsp;<a href="javascript:next();">next</a>
+    </div>
+</body>
+
+</html>

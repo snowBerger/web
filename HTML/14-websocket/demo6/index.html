@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+<body>
+  <div>
+    <input id="input" type="text">
+    <button id="send">发送</button>
+  </div>
+  <script>
+    const showMessage = (str, type) => {
+      let div = document.createElement('div')
+      if (type === 'enter') div.style.color = '#00F'
+      else if (type === 'leave') div.style.color = '#F00'
+      div.innerHTML = str
+      document.body.appendChild(div)
+    }
+    let socket = io('ws://localhost:3000/')
+    document.getElementById('send').onclick = () => {
+      let text = document.getElementById('input').value
+      if (text) socket.emit('message', text)
+    }
+    socket.on('enter', (data) => {
+      console.log('socket close.')
+      showMessage(data, 'enter')
+    })
+    socket.on('message', (data) => {
+      showMessage(data, 'message')
+    })
+    socket.on('leave', (data) => {
+      showMessage(data, 'leave')
+    })
+  </script>
+</body>
+</html>

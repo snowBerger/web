@@ -1,0 +1,303 @@
+
+
+@font-face {
+    font-family: Square;
+     /*src: url("../font/Square.ttf");*/
+     src: url("../font/BebasNeueBold.otf");
+}
+body{
+font-family: Square;
+}
+.lottrey{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.content{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /*background: #010E0E;*/
+    background: url("../images/bg.png") no-repeat center;
+    background-size: cover;
+    color: #75FBF9;
+}
+.content .logo{
+    background: url("../images/logo.png") no-repeat center;
+    position: fixed;
+    margin: 1rem 2rem;
+    width: 200px;
+    height: 120px;
+}
+.content .left{
+   width: 60%;
+    font-size: 10rem;
+}
+.content .right{
+    width: 40%;
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.content .right .right_close{
+
+}
+.content .left .main{
+    height: 100%;
+    /*background: url("../images/1.gif") no-repeat center;*/
+    background: url("../images/1.gif") no-repeat center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content .left .main.stop{
+    background: url("../images/2.gif") no-repeat center;
+    background-size: contain;
+}
+.content .left .main.animation{
+    /*animation: stopMian 1000ms;*/
+    background: url("../images/3.gif") no-repeat center;
+    background-size: contain;
+
+}
+.main .box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.main .box div{
+    display: flex;
+    justify-content: center;
+}
+.left .main .box:first-child{
+    flex: 1;
+}
+.left .main .box:last-child{
+  height: 20%;
+}
+.left .main .box:first-child div{
+}
+.left .main .bun{
+    position: relative;
+    bottom: 40px;
+    background: url('../images/btn_star.png') no-repeat center;
+    padding: 1rem;
+    width: 12rem;
+    height: 4rem;
+    cursor: pointer;
+    animation: showText 3s infinite;
+}
+.left .main .bun:hover{
+    background: url('../images/btn_star_1.png') no-repeat center;
+}
+.left .main .bun.stop{
+    background: url('../images/btn_stop.png') no-repeat center;
+}
+.left .main .bun.stop:hover{
+    background: url('../images/btn_stop_1.png') no-repeat center;
+}
+#luckyName{
+    font-family: Square;
+    /*line-height: 10rem;*/
+    /*margin: 6rem 0 0 0;*/
+}
+@media screen and (min-width: 1600px){
+    #luckyName{
+        font-size: 12rem;
+        margin: 4rem 0 0 1.4rem;
+    }
+}
+@media screen and (max-width: 1600px){
+    #luckyName{
+        font-size: 10rem;
+        margin: 5.2rem 0 0 1rem
+
+    }
+}
+@media screen and (max-width: 1300px){
+    #luckyName{
+        font-size: 8rem;
+        margin: 4rem -1rem 0 0;
+    }
+}
+@media screen and (max-width: 1200px){
+    #luckyName{
+        font-size: 8rem;
+        margin: 8rem -1rem 0 0;
+    }
+}
+@media screen and (max-width: 960px){
+    #luckyName{
+        font-size: 6rem;
+        margin: 8rem 0 0 0;
+
+    }
+}
+
+.main #luckyName.stop{
+    /*font-size: 12rem;*/
+    animation: Luckystop 0.5s;
+}
+.luckyName_box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.luckyName_box .title{
+    /*font-size: 5rem;*/
+    /*line-height: 9rem;*/
+    display: none;
+}
+.luckyName_box .title.stop{
+    animation: luckyNameTitle 0.5s;
+    font-size: 5rem;
+    line-height: 9rem;
+    color: #57F1F3;
+    display: inline-block;
+}
+.right .main{
+    background: url("../images/bg_rewards.png") no-repeat;
+    height: 40rem;
+    width: 27rem;
+    background-size:100% 100%;
+}
+.right .main .winner_list_title{
+    background: url('../images/title_0.png') no-repeat center;
+    height: 35px;
+    margin: 2.8rem 0;
+    width: 422px;
+    background-size: contain;
+}
+.right .main div{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+#winnerList{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 85%;
+    /*padding: -1px 1.2rem;*/
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+}
+#winnerList:hover{
+    overflow-y: auto;
+}
+#winnerList::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 0px;
+}
+
+#winnerList .luckyed{
+
+    display: inline-block;
+    position: relative;
+    width: 48px;
+    line-height: 3.6rem;
+    padding: 0.6rem 2.4rem;
+    font-size: 48px;
+}
+.luckyed_0{
+    animation: rightNumberAnimatin 1s;
+}
+.luckyed_1{
+    animation: rightNumberAnimatin 1500ms;
+}
+.luckyed_2{
+    animation: rightNumberAnimatin 2000ms;
+}
+@keyframes luckyNameTitle {
+    0%{
+        opacity: 0;
+        font-size: 0rem;
+    }
+    100%{
+        opacity: 1;
+        font-size: 5rem;
+    }
+}
+@keyframes Luckystop {
+    0%{
+        opacity: 0;
+        font-size: 0rem;
+    }
+    100%{
+        opacity: 1;
+        font-size: 12rem;
+    }
+
+}
+@keyframes stopMian {
+    0%{
+        background: url("../images/2.gif") no-repeat center;
+        background-size: contain;
+    }
+    25%{
+        background: url("../images/3.gif") no-repeat center;
+        background-size: contain;
+    }
+    75%{
+        background: url("../images/3.gif") no-repeat center;
+        background-size: contain;
+    }
+    100%{
+        background: url("../images/1.gif") no-repeat center;
+        background-size: contain;
+    }
+}
+@keyframes rightNumberAnimatin
+{
+    /*from {*/
+        /*opacity: 0;*/
+        /*!*right: -800px;*!*/
+    /*}*/
+    /*to {*/
+        /*opacity: 1;*/
+        /*!*right: 0*!*/
+    /*}*/
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes showText {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.text{
+
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+.text p{
+    color: #1f6377;
+}

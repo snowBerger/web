@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>碳云抽奖系统</title>
+    <style type="text/css">
+        html, body{margin: 0;padding: 0;height: 100%}
+        .home_content{
+            position: absolute;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            background: url("images/index/bg_enter.png") no-repeat center;
+            background-size: cover;
+        }
+        .home_content .start{
+            display: flex;
+            font-size: 3rem;
+            justify-content: center;
+            color: #ffffff;
+        }
+        .home_content .start p{
+            animation: showText 3s infinite;
+            width: 206px;
+            height: 76px;
+            background: url("images/index/ic_enter.png");
+            margin-bottom: 45px;
+            cursor: pointer;
+        }
+        .home_content .start p:hover{
+            background: url("images/index/ic_enter_hover.png");
+        }
+        .logo{
+            background: url("images/logo.png") no-repeat center;
+            position: fixed;
+            padding: 2rem 4rem;
+            width: 200px;
+            height: 120px;
+        }
+        @keyframes showText {
+            0% {
+                opacity: 1;
+            }
+            25% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 0.5;
+            }
+            100% {
+            opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="logo"></div>
+<section class="home_content">
+    <div class="start">
+        <p class="start_text"></p>
+    </div>
+    <!--<audio id="audio" autoplay src="music/bj.wav" loop></audio>-->
+</section>
+<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
+</body>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('.start_text').click(function () {
+            window.location.href = "lottery.html";
+        })
+        $(document).keydown(function(ev) {
+            var oEvent = ev || event;
+            keyCode = oEvent.keyCode;
+            if (keyCode == 16) {
+                window.location.href = "lottery.html";
+            }
+        })
+        $(".home_content").height(document.body.clientHeight )
+        $(".home_content").width(document.body.clientWidth)
+        $(".start_text").text('')
+        window.addEventListener( 'resize', onWindowResize, false );
+        function onWindowResize(){
+            $(".home_content").height(document.body.clientHeight )
+            $(".home_content").width(document.body.clientWidth)
+        }
+
+    })
+</script>
+</html>

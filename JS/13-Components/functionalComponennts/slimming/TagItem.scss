@@ -1,0 +1,39 @@
+$fontColor: #7A7D80;
+
+.tagItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: .44rem .3rem .44rem .4rem;
+  background: #fff;
+  margin: .02rem 0;
+  .name {
+    width: 1.5rem;
+    margin-right: .2rem;
+    font-size: .28rem;
+    color: $fontColor;
+    line-height: .32rem;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    & > span {
+      width: 1rem;
+      height: .2rem;
+      background: #E6EBF0;
+      font-size: .28rem;
+      color: #FFFFFF;
+    }
+    & > span:nth-child(2) {
+      margin: 0 .04rem;
+    }
+  }
+  span.link {
+    font-size: .38rem;
+    line-height: .38rem;
+    font-weight: 600;
+    color: rgba(122, 125, 128, 0.5);
+  }
+}

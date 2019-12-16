@@ -1,0 +1,26 @@
+1.throttle:
+
+  _.throttle(function, wait, [options])
+
+  在用户调用开始时即调用一次，之后每隔wait时间段执行一次调用。（options:[{leading: false}或{trailing:false}]）leading则避免第一次调用，trailing则避免最后一次调用。
+
+2.debounce:
+
+  _.debounce(function, wait, [immediate])
+
+
+  延迟函数调用，在用户最后一次调用之后的wait时间段之后执行function。(immediate：[true, false])，immediate为true，则会在wait时间间隔开始调用function
+
+
+  比较：
+
+  throttle()关注function执行的频率，每次间隔wait时间执行function，适用场景:
+     
+     鼠标移动事件，onmousemove，
+     DOM元素动态定位，Window对象的resize和scroll事件
+
+
+  debounce()关注function的执行间隔，当用户事件调用结束后wait时间段再执行响应，适用场景：
+
+     input 中输入文字自动发送 ajax 请求进行自动补全
+     keydown、keyup事件

@@ -1,0 +1,48 @@
+.reportTags {
+  padding-top: .2rem;
+  background: #fff;
+  border-radius: .08rem;
+  .tagsTitle {
+    & > span {
+      font-size: .32rem;
+      line-height: .32rem;
+      color: #34353B;
+    }
+    & > span:first-child {
+      font-size: .4rem;
+      color: #00BADB;
+      margin: 0 .1rem 0 .2rem;
+    }
+  }
+  .tagsContent {
+    padding: .6rem .3rem;
+    .tagList {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .tagList .icxTag {
+      margin: .1rem .04rem;
+      padding: .16rem;
+      font-size: .28rem;
+      line-height: .28rem;
+      border-radius: .04rem;
+    }
+    .goodTags .icxTag {
+      color: #FFF;
+      background: #00BADB;
+    }
+    .goodTags .icxTag:active {
+      background: #00B2D4;
+    }
+    .badTags .icxTag {
+      color: #7A7D80;
+      background: #F2F4F5;
+    }
+    .badTags .icxTag:active {
+      background: #E3E6E8;
+    }
+  }
+}

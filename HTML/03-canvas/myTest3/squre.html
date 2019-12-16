@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 图形绘制</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+        当前浏览器不支持Canvas，请更换浏览器重试。
+    </canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 800;
+        canvas.height = 800;
+
+        var context = canvas.getContext('2d');
+
+        drawRect(context, 100, 100, 400, 400, 10, '#058', '#f00');
+        drawRect2(context, 300, 300, 400, 400, 10, '#058', 'rgba(0, 255, 0, 0.8)');
+    }
+
+    function drawRect(ctx, x, y, width, height, borderWidth, borderColor, fillColor) {
+        ctx.beginPath();
+        ctx.rect(x, y, width, height); //rect() 规划出矩形的路径
+        ctx.closePath();
+
+        ctx.lineWidth = borderWidth;
+        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = borderColor;
+
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    function drawRect2(ctx, x, y, width, height, borderWidth, borderColor, fillColor) {
+        ctx.lineWidth = borderWidth;
+        ctx.fillStyle = fillColor;
+        ctx.strokeStyle = borderColor;
+
+        ctx.fillRect(x, y, width, height);   //fillRect()  绘制矩形填充
+        ctx.strokeRect(x, y, width, height);  //strokeRect()  绘制矩形边框
+    }
+    </script>
+</body>
+
+</html>

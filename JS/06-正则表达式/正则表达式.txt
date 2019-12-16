@@ -1,0 +1,19 @@
+1、正则表达式符号及含义：
+
+   RegExp是正则表达式的缩写
+
+   定义：var reg = new RegExp("e");  //拥有三个方法
+
+   reg.test("ababab");  //false
+   reg.test("abces");   //true
+
+   reg.exec("abcdefffe"); //e
+   
+   var reg1 = new RegExp("e", "g");  //匹配全部(global)的值   
+   reg.exec("abcdefffefefed");      //eeee
+
+   reg1.compile("d");    //改变检索模式并删除第二个参数global
+   reg1.exec("abcdfffefefed");   //d
+
+
+   

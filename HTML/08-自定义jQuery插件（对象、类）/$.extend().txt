@@ -1,0 +1,19 @@
+JQuery的extend()扩展方法：
+
+1、JQuery扩展方法原型：
+   
+   $.extend(dest, src1, src2, src3...);        //将src1, src2, src3...合并到dest中，相当于修改了dest的结构
+
+   var newSrc = $.extend({}, src1, src2, src3...);   //将src1, src2, src3...合并，返回给newSrc
+
+2、省略dest参数：
+  
+   $.extend(src);    //将src合并到JQuery的全局对象中
+
+   $.fn.extend(src);  //将src合并到JQuery的实例对象中
+
+3、extend()的重载原型
+
+   var result = $.extend(false, {}, src1, src2....);   //将src1, src2...合并（浅拷贝）后，返回给result
+
+   var result = $.extend(true, {}, src1, src2...);     //将src1, src2...合并（深拷贝）后， 返回给result

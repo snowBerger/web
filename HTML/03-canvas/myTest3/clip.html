@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>clip</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+        当前浏览器不支持Canvas，请更换浏览器重试。
+    </canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 800;
+        canvas.height = 800;
+
+        var context = canvas.getContext('2d');
+
+        context.beginPath();
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.beginPath();
+        context.arc(400, 400, 150, 0, Math.PI * 2);
+        context.fillStyle = "#fff";
+        context.fill();
+        context.clip();
+
+        context.font = "bold 80px Arail";
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillStyle = "#058";
+        context.fillText("聚食汇·智慧云", canvas.width / 2, canvas.height / 2);
+    }
+    </script>
+</body>
+
+</html>

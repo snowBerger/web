@@ -1,0 +1,32 @@
+.reportTop {
+  width: 100%;
+  padding: .25rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: .08rem;
+  background: #00BADB;
+  .topImg {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0 .3rem;
+    border-radius: 50%;
+  }
+  .topContent {
+    width: 4.48rem;
+    & > div {
+      color: #fff;
+    }
+    & > div:first-child {
+      height: .56rem;
+      font-size: .56rem;
+      line-height: .56rem;
+      overflow: hidden;
+    }
+    & > div:last-child {
+      margin-top: .16rem;
+      font-size: .24rem;
+      line-height: .4rem;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery自定义插件</title>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	#fruit-list{
+		list-style: none;
+		padding: 30px;
+	}
+
+	.fruit{
+		width: 100px;
+		padding: 5px;
+		border: 1px solid #999;
+	}
+	</style>
+</head>
+<body>
+	<h3>自定义实体插件</h3>
+	<ul id="fruit-list">
+		<li class="fruit">苹果</li>
+		<li class="fruit">香蕉</li>
+		<li class="fruit">梨子</li>
+		<li class="fruit">葡萄</li>
+		<li class="fruit">西瓜</li>
+	</ul>
+	<script type="text/javascript">
+	(function($){
+		$.extend({
+			"focusBGColor":function(obj){
+				obj.parent().children().css("backgroundColor", "#fff");
+				obj.css({"backgroundColor": "#666"});
+			} 
+		});
+	})(jQuery);
+
+	$(function(){
+		$(".fruit").bind("mouseover", function(){
+			$.focusBGColor($(this));	
+		});
+	});
+	</script>
+</body>
+</html>

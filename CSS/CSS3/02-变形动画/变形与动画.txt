@@ -1,0 +1,26 @@
+1.设置3d布景:
+
+//设置视距 
+-webkit-perspective: 800px;
+-moz-perspective: 800px;
+-ms-perspective: 800px;
+-o-perspective: 800px;
+perspective: 800px;
+//设置剧中位置
+perspective-origin: center:
+
+3.使被转换的子元素保留其 3D 转换（位置）：
+div
+{
+transform: rotateY(60deg);
+transform-style: preserve-3d;
+-webkit-transform: rotateY(60deg);	/* Safari 和 Chrome */
+-webkit-transform-style: preserve-3d;	/* Safari 和 Chrome */
+}
+
+2. 平移旋转:
+transform: rotateX(45deg) translateZ(20px);
+
+3.动画:
+
+transition: all(属性) time(历时) ease/linear/ease-in/ease-out/easing(过度效果) delay(延时时间)

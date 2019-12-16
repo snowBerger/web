@@ -1,0 +1,35 @@
+.cardTop {
+  position: relative;
+  padding: .26rem .3rem;
+  min-height: 2.4rem;
+  .cardTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .titleL {
+      font-size: .4rem;
+      line-height: .4rem;
+      color: #FFFFFF;
+    }
+    .titleR {
+      & > span {
+        color: #fff;
+        font-size: .28rem;
+        line-height: .28rem;
+      }
+    }
+  }
+  & > img {
+    position: absolute;
+    height: 2.4rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .cardDesc {
+    margin-top: .2rem;
+    font-size: .24rem;
+    line-height: .38rem;
+    color: #fff;
+  }
+}

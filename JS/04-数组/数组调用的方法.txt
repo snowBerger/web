@@ -1,0 +1,17 @@
+1、Array.prototype.join()  //返回数组拼接后的字符串，不会改变原数组
+
+2、Array.prototype.reverse()  //数组倒置，原数组被修改
+
+3、Array.prototype.sort()    //数组排序，按照字符串方式，第一个字母或数字
+
+arr.sort(function(a, b){
+ return a - b;        //从小到大排序
+});
+
+4、Array.prototype.concat()   //返回数组拼接的结果，不会改变原数组
+
+5、Array.prototype.slice(a, b);     //拷贝数组指定区间[a, b) ,不会改变原数组
+
+6、Array.prototype.splice(index, howmany, element1...);   //可以实现数组元素替换、插入、删除，对原数组做修改，返回被删除的元素数组
+                                                          //splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
+                                                          //eg: js数组去重

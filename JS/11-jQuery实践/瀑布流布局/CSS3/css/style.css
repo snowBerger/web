@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    -webkit-column-width: 267px;
+    -moz-column-width: 267px;
+    -ms-column-width: 267px;
+    -o-column-width: 267px;
+    column-width: 267px;
+}
+
+.box {
+    /* float: left; */
+    padding：15px 0 0 15px;
+}
+
+.pic {
+    width: 230px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.pic img {
+    display: block;
+    width: 230px;
+}

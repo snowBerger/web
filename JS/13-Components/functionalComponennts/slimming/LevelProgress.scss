@@ -1,0 +1,61 @@
+$fontColor: #4A4A4A;
+
+.levelProgress {
+  & > ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    & > li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .progressText {
+        font-size: .28rem;
+        line-height: .28rem;
+        color: rgba($fontColor, .18);
+        margin-bottom: .28rem;
+      }
+      .progressLine {
+        width: 2rem;
+        height: .2rem;
+        margin: 0 .02rem;
+        background: #E6EBF0;
+      }
+    }
+    & > li.current {
+      .progressText {
+        color: $fontColor;
+      }
+      .progressLine {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        .progressFlag {
+          display: inline-block;
+          width: .33rem;
+          height: .52rem;
+          margin-top: -.2rem;
+        }
+        .progressFlag.flag-1,
+        .progressFlag.flag-3 {
+          background: url(./images/progress-flag-1.png) 0 0 no-repeat;
+          background-size: 100% 100%;
+        }
+        .progressFlag.flag-2 {
+          background: url(./images/progress-flag-2.png) 0 0 no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+    & > li:first-child .progressLine {
+      margin: 0;
+      border-radius: 1rem 0 0 1rem;
+    }
+    & > li:last-child .progressLine {
+      margin: 0;
+      border-radius: 0 1rem 1rem 0;
+    }
+  }
+}

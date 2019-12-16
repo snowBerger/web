@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Untitled Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /*
+     * param1 Array 
+     * param2 Array
+     * return true or false
+     */
+    function arraysSimilar(arr1, arr2) {
+        if (!(arr1 instanceof Array) || !(arr2 instanceof Array)) {
+            return false;
+        }
+        if (arr1.length != arr2.length) {
+            return false;
+        }
+        var array1 = [];
+        var array2 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            /*if (typeof(arr1[i]) !== "object") {
+                array1.push(typeof(arr1[i]));
+            } else {
+                array1.push(Object.prototype.toString.apply(arr1[i]));
+            }
+            if (typeof(arr2[i]) !== "object") {
+                array2.push(typeof(arr2[i]));
+            } else {
+                array2.push(Object.prototype.toString.apply(arr2[i]));
+            }*/
+            array1.push(Object.prototype.toString.apply(arr1[i]));
+            array2.push(Object.prototype.toString.apply(arr2[i]));
+        }
+        return array1.sort().join() == array2.sort().join() ? true : false;
+    }
+    </script>
+    <script src="testData.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+@charset"utf-8";
+
+@import "ku";
+
+//列表总宽度
+@tudou_width: 616px;
+.tudou_main {
+    width: @tudou_width;
+    .bc();
+}
+
+.title {
+    @h: 62px;
+    @border_color: #d0d0d0;
+    height: @h;
+    line-height: @h;
+    border-top: 1px solid @border_color;
+    margin-top: 20px;
+    h3 {
+        color: #575757;
+        font: 22px/@h @font-family;
+        width: 106px;
+        height: @h - 1;
+        border-top: 2px solid #f97374;
+        margin-top: -1px;
+        position: relative;
+        .fl();
+    }
+    &_nav {
+        .fl(right);
+        list-style: none;
+        li {
+            .fl();
+        }
+        a {
+            margin: 0 8px;
+            .font-size14();
+            text-decoration: none;
+            color: #666;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>星空</title>
+</head>
+
+<body>
+    <canvas id="canvas">
+        当前浏览器不支持Canvas，请更换浏览器重试。
+    </canvas>
+    <script type="text/javascript">
+    window.onload = function() {
+        var canvas = document.getElementById("canvas");
+
+        canvas.width = 1200;
+        canvas.height = 800;
+
+        var context = canvas.getContext('2d');
+
+        //绘制黑色背景
+        var skyStyle = context.createRadialGradient(canvas.width / 2, canvas.height, 0, canvas.width / 2, canvas.height, canvas.height);
+        skyStyle.addColorStop(0.0, "#035");
+        skyStyle.addColorStop(1.0, "black");
+
+        context.fillStyle = skyStyle; //fillStyle允许赋值：color; gradient(linear/radial); image(repeat); canvas(repeat); video(repeat) 
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < 200; i++) {
+            var R = Math.random() * 5 + 5;
+            var x = Math.random() * canvas.width;
+            var y = Math.random() * canvas.height * 0.65;
+            var alpha = Math.random() * 360;
+            drawStar(context, x, y, R, alpha);
+        };
+
+        //绘制月亮
+        fillMoon(context, 2, 900, 200, 100, 30);
+
+        //绘制绿地
+        drawLand(context);
+
+        //绘制文字
+        context.save();
+        context.fillStyle = "#fff";   //color; 渐变色; 图片; 其他Canvas; 视频等
+        context.font = "italic bold 40px sans-serif";
+        context.fillText("美丽的草原，我的家！", 50, 760)
+        context.restore();
+    }
+
+    //绘制星空
+    function drawStar(ctx, x, y, R, alpha) {
+        ctx.save();
+
+        ctx.translate(x, y);
+        ctx.rotate(alpha / 180 * Math.PI);
+        ctx.scale(R, R);
+
+        starPath(ctx);
+
+        ctx.fillStyle = "#fb3";
+        //ctx.lineWidth = 3;
+        //ctx.strokeStyle = "#fd5"
+        //ctx.lineJoin = "round" //miter:默认、bevel：方形、round：圆形
+
+        ctx.fill();
+        //ctx.stroke();
+
+        ctx.restore();
+    }
+
+    //绘制星星边框
+    function starPath(ctx) {
+        ctx.beginPath();
+        for (var i = 0; i < 5; i++) {
+            ctx.lineTo(Math.cos((18 + 72 * i) / 180 * Math.PI), -Math.sin((18 + 72 * i) / 180 * Math.PI));
+
+            ctx.lineTo(Math.cos((54 + 72 * i) / 180 * Math.PI) * 0.5, -Math.sin((54 + 72 * i) / 180 * Math.PI) * 0.5);
+        }
+        ctx.closePath();
+    }
+
+    //绘制弯月  /*optional  fillColor*/
+    function fillMoon(ctx, d, x, y, R, alpha, fillColor) {
+        ctx.save();
+
+        ctx.translate(x, y);
+        ctx.rotate(alpha * Math.PI / 180);
+        ctx.scale(R, R);
+
+        pathMoon(ctx, d);
+
+        ctx.fillStyle = fillColor || "#fb5";
+        ctx.fill();
+
+        ctx.restore();
+    }
+
+    function pathMoon(ctx, d) {
+        ctx.beginPath();
+        ctx.arc(0, 0, 1, 0.5 * Math.PI, 1.5 * Math.PI, true);
+        ctx.moveTo(0, -1);
+        //ctx.arcTo(d, 0, 0, 1, dis(0, -1, d, 0) / d);
+        ctx.quadraticCurveTo(1.2, 0, 0, 1);
+        ctx.closePath();
+    }
+
+    function dis(x1, y1, x2, y2) {
+        return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+    }
+
+    //绘制绿地
+    function drawLand(ctx) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(0, 600);
+        ctx.bezierCurveTo(540, 400, 660, 800, 1200, 600);
+        ctx.lineTo(1200, 800);
+        ctx.lineTo(0, 800);
+        ctx.closePath();
+
+        var landStyle = ctx.createLinearGradient(0, 800, 0, 0);
+        landStyle.addColorStop(0.0, '#030');
+        landStyle.addColorStop(1.0, '#580');
+
+        ctx.fillStyle = landStyle;
+        ctx.fill();
+        ctx.restore();
+    }
+    </script>
+</body>
+
+</html>
