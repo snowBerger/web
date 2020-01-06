@@ -13,10 +13,8 @@
 
 function add () {
   const args = [...arguments]
-  console.log(args)
   let fn = function () {
     const fn_args = [...arguments]
-    console.log(fn_args)
     return add.apply(this, [...args, ...fn_args])
   }
 
