@@ -20,17 +20,41 @@
 // 3. delete foo.fn
 //---------
 
-Function.prototype.call2 = function (context) {
-  var context = context || window
+// Function.prototype.call2 = function (context) {
+//   var context = context || window
+//   context.fn = this
+
+//   var args = []
+//   for (var i = 1, len = arguments.length; i < len; i++) {
+//     args.push(`arguments[${i}]`)
+//   }
+
+//   var result = eval(`context.fn(${args})`)
+
+//   delete context.fn
+//   return result
+// }
+
+Function.prototype.myCall = function(context) {
+  context = context || window
   context.fn = this
 
-  var args = []
-  for (var i = 1, len = arguments.length; i < len; i++) {
-    args.push(`arguments[${i}]`)
-  }
-
-  var result = eval(`context.fn(${args})`)
+  context.fn(...[...arguments].slice(1))
 
   delete context.fn
-  return result
 }
+
+let test = {
+  name: 'test'
+}
+
+let o = {
+  name: 'o',
+  fn: function() {
+    console.log(this.name, ...arguments)
+  }
+}
+
+o.fn(1, 2, 3)                   // o 1 2 3
+o.fn.call(test, 1, 2, 3)        // test 1 2 3
+o.fn.myCall(test, 1, 2, 3)      // test 1 2 3
